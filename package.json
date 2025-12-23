@@ -1,0 +1,22 @@
+{
+  "name": "quote-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "license": "CC-BY-SA-4.0",
+  "description": "You must update this package",
+  "scripts": {
+    "start": "node backend/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeYourFuture/CYF-Coursework-Template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodeYourFuture/CYF-Coursework-Template/issues"
+  },
+  "homepage": "https://github.com/CodeYourFuture/CYF-Coursework-Template#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+}

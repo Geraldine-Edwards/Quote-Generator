@@ -1,0 +1,108 @@
+:root {
+  --font-family: "Helvetica Neue", Arial, sans-serif;
+  --font-size: 1.5rem;
+  --primary-colour: darkolivegreen;
+  --secondary-colour: linen;
+  --text-colour: rgb(41, 58, 11);
+  --padding: 20px;
+  --border-radius: 10px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  font-family: var(--font-family);
+  font-size: 2.5rem;
+  color: var(--text-colour);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+body {
+  font-family: var(--font-family);
+  background-color: var(--secondary-colour);
+  margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+button {
+  background-color: var(--secondary-colour);
+  color: var(--text-colour);
+  font-family: var(--font-family);
+  font-size: 1.2rem;
+  padding: var(--padding);
+  margin-top: 30px;
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Add click down effect */
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#quote-container {
+  background-color: var(--primary-colour);
+  width: 90vw;
+  max-width: 600px;
+  height: auto;
+  min-height: 200px;
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#quote-box {
+  background-color: var(--secondary-colour);
+  padding: var(--padding);
+  color: var(--text-colour);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#quote {
+  font-size: var(--font-size);
+  text-align: center;
+}
+#author {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+  #quote-container {
+    width: 98vw;
+    max-width: 100vw;
+    padding: 10px;
+  }
+  body {
+    padding: 10px 2px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  #quote {
+    font-size: 1.1rem;
+  }
+}
