@@ -1,4 +1,3 @@
-
 import cors from "cors";
 import express from "express";
 import path from 'path';
@@ -28,11 +27,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  // collect incoming data chunks from the request body
+  // collect incoming data chunks (bytes) from the request body in addQuote() function from display-quotes.js
   const bodyBytes = [];
   req.on("data", chunk => bodyBytes.push(...chunk));
 
-  // 'end' signals all data has been received, we can then process the complete body
+  // 'end' signals all data has been received, so can then process the complete body
   req.on("end", () => {
     const bodyString = String.fromCharCode(...bodyBytes);
     let body;
