@@ -1,17 +1,12 @@
 
-import express from "express";
 import cors from "cors";
+import express from "express";
+import path from 'path';
 import {quotes, pickFromArray} from './quotes-data.js'
 
 const app = express();
 app.use(cors());
 const port = 3000;
-
-
-function randomQuote() {
-  const index = Math.floor(Math.random() * quotes.length);
-  return quotes[index];
-}
 
 app.use(express.static('frontend'));
 
