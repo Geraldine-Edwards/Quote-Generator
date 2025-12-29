@@ -6,7 +6,15 @@ import { fileURLToPath } from 'url';
 import {quotes, pickFromArray} from './quotes-data.js'
 
 const app = express();
-app.use(cors());
+
+//  ensure that CORS is restricted to allow requests only from the deployed frontend
+const allowedDomain = [
+  "https://geraldine-edwards-quote-generator-frontend.hosting.codeyourfuture.io"
+];
+
+app.use(cors({
+  origin: allowedDomain
+}));
 const port = 3000;
 
 // Local Dev only: get the absolute path of this file and its directory (ES module equivalent of __filename and __dirname)
