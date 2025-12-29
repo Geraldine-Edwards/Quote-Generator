@@ -15,11 +15,11 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.get('/api/quote', (req, res) => {
+app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
 });
 
-app.post('/api/quote', (req, res) => {
+app.post('/', (req, res) => {
   // collect incoming data chunks from the request body
   const bodyBytes = [];
   req.on("data", chunk => bodyBytes.push(...chunk));
