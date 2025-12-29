@@ -1,3 +1,4 @@
+
 :root {
   --font-family: "Helvetica Neue", Arial, sans-serif;
   --font-size: 1.5rem;
@@ -8,7 +9,6 @@
   --border-radius: 10px;
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-
 h1 {
   font-family: var(--font-family);
   font-size: 2.5rem;
@@ -45,13 +45,11 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
-
 /* Add click down effect */
 button:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
-
 #quote-container {
   background-color: var(--primary-colour);
   width: 90vw;
@@ -66,7 +64,6 @@ button:active {
   justify-content: center;
   align-items: center;
 }
-
 #quote-box {
   background-color: var(--secondary-colour);
   padding: var(--padding);
@@ -78,7 +75,6 @@ button:active {
   justify-content: center;
   align-items: center;
 }
-
 #quote {
   font-size: var(--font-size);
   text-align: center;
@@ -87,6 +83,59 @@ button:active {
   font-size: 1rem;
   font-style: italic;
   font-weight: bold;
+}
+#add-quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  margin: 24px auto 0 auto;
+}
+#add-quote-form input[type="text"] {
+  font-size: 1.1rem;
+  padding: 12px 10px;
+  border-radius: var(--border-radius);
+  border: 1px solid #bfc2a6;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+#add-quote-form button[type="submit"] {
+  width: auto;
+  align-self: center;
+  margin-top: 8px;
+}
+#quote-container {
+  margin-bottom: 0;
+}
+.add-quote-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  font-size: 1.2rem;
+  font-family: var(--font-family);
+  padding: 16px 0;
+  border-radius: var(--border-radius);
+  margin: 32px auto 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+.add-quote-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  font-size: 1.2rem;
+  font-family: var(--font-family);
+  padding: 16px 0;
+  border-radius: var(--border-radius);
+  margin: 32px auto 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
 /* Responsive adjustments for small screens */
