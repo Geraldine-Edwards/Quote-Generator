@@ -9,11 +9,11 @@ const app = express();
 app.use(cors());
 const port = 3000;
 
-// get the absolute path of this file and its directory (ES module equivalent of __filename and __dirname)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Local Dev only: get the absolute path of this file and its directory (ES module equivalent of __filename and __dirname)
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, '../frontend')));
+// app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
