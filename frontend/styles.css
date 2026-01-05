@@ -96,7 +96,8 @@ button:active {
   margin: 50px auto 0 auto;
 }
 #add-quote-form h1 {
-color: var(--secondary-colour);
+  color: var(--secondary-colour);
+  margin-bottom: 10px;
 }
 #add-quote-form input[type="text"] {
   font-size: 1.1rem;
