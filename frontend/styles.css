@@ -85,12 +85,18 @@ button:active {
   font-weight: bold;
 }
 #add-quote-form {
+  background: var(--text-colour);
+  border-radius: var(--border-radius);
+  padding: 15px 15px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
   max-width: 400px;
-  margin: 24px auto 0 auto;
+  margin: 50px auto 0 auto;
+}
+#add-quote-form h1 {
+color: var(--secondary-colour);
 }
 #add-quote-form input[type="text"] {
   font-size: 1.1rem;
