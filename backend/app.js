@@ -11,6 +11,21 @@ const allowedDomain = [
   "https://geraldine-edwards-quote-generator-frontend.hosting.codeyourfuture.io"
 ];
 
+// validation outputs helper function
+function validateQuoteBody(body) {
+  if (typeof body !== "object" || !("quote" in body) || !("author" in body)) {
+    return "Missing data: Please include both 'quote' and 'author' fields.";
+  }
+  if (typeof body.quote !== "string" || body.quote.trim() === "") {
+    return "The 'quote' field must be a non-empty string.";
+  }
+  if (typeof body.author !== "string" || body.author.trim() === "") {
+    return "The 'author' field must be a non-empty string.";
+  }
+  // when valid
+  return null; 
+}
+
 app.use(cors({
   origin: allowedDomain
 }));
@@ -39,15 +54,16 @@ app.post('/', (req, res) => {
       body = JSON.parse(bodyString);
     } catch (error) {
       console.error(`Failed to parse body ${bodyString} as JSON: ${error}`);
-      res.status(400).send("Expected body to be JSON.");
+      res.status(400).send("Invalid data format: Please send valid JSON.");
       return;
     }
-    // validate that the parsed object has both 'quote' and 'author'
-    if (typeof body != "object" || !("quote" in body) || !("author" in body)) {
-      console.error(`Failed to extract quote and author from post body: ${bodyString}`);
-      res.status(400).send("Expected body to be a JSON object containing keys quote and author.");
+    // validation errors
+    const validationError = validateQuoteBody(body);
+    if (validationError) {
+      res.status(400).send(validationError);
       return;
     }
+
     // add the new quote to the quotes array
     quotes.push({
       quote: body.quote,

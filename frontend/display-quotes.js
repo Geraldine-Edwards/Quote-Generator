@@ -48,7 +48,7 @@ async function addQuote(quote, author) {
       document.getElementById('add-quote-form').reset();
     } else {
       const error = await response.text();
-      messageElem.innerText = 'Failed to add quote: ' + error;
+      messageElem.innerText = error ? error : 'Could not add your quote. Please check your input and try again.';
       messageElem.classList.add('add-quote-error');
     }
     setTimeout(() => {
@@ -57,7 +57,7 @@ async function addQuote(quote, author) {
     }, 4000);
   } catch (error) {
     const messageElem = document.getElementById('add-quote-message');
-    messageElem.innerText = 'Error: ' + error.message;
+    messageElem.innerText = 'Network error: Unable to reach the server. Please try again later.';
     messageElem.classList.remove('add-quote-success');
     messageElem.classList.add('add-quote-error');
     setTimeout(() => {
