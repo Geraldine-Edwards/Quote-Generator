@@ -1,14 +1,14 @@
 import cors from "cors";
 import express from "express";
-import path from 'path';
-import { fileURLToPath } from 'url';
 import {quotes, pickFromArray} from './quotes-data.js'
 
 const app = express();
 
 //  ensure that CORS is restricted to allow requests only from the deployed frontend
 const allowedDomain = [
-  "https://geraldine-edwards-quote-generator-frontend.hosting.codeyourfuture.io"
+  "https://geraldine-edwards-quote-generator-frontend.hosting.codeyourfuture.io",
+  "http://localhost:5501",
+  "http://127.0.0.1:5501"
 ];
 
 // validation outputs helper function
@@ -30,12 +30,6 @@ app.use(cors({
   origin: allowedDomain
 }));
 const port = 3000;
-
-// Local Dev only: get the absolute path of this file and its directory (ES module equivalent of __filename and __dirname)
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-// app.use(express.static(path.join(__dirname, '../frontend')));
 
 app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
