@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import {quotes, pickFromArray} from './quotes-data.js'
+import { quotes } from './quotes.js'
 
 const app = express();
 
@@ -26,10 +26,17 @@ function validateQuoteBody(body) {
   return null; 
 }
 
+
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+
 app.use(cors({
   origin: allowedDomain
 }));
 const port = 3000;
+
 
 app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
@@ -57,7 +64,9 @@ app.post('/', (req, res) => {
       res.status(400).send(validationError);
       return;
     }
-
+    const newQuote = {
+      quote: body
+    }
     // add the new quote to the quotes array
     quotes.push({
       quote: body.quote,
