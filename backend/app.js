@@ -3,6 +3,7 @@ import express from "express";
 import { quotes } from './quotes.js'
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //  ensure that CORS is restricted to allow requests only from the deployed frontend
 const allowedDomain = [
@@ -35,8 +36,6 @@ function pickFromArray(choices) {
 app.use(cors({
   origin: allowedDomain
 }));
-const port = 3000;
-
 
 app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
