@@ -43,7 +43,7 @@ app.use(cors({
   }
 }));
 
-
+app.get('/health', (req, res) => res.send('ok'));
 
 app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
