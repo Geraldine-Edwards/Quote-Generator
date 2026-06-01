@@ -34,14 +34,14 @@ function pickFromArray(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-
-app.use(cors({
-   origin(origin, callback) {
-    if (!origin) return callback(null, true); // allow curl / non-browser tools
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    return callback(new Error('CORS: Origin not allowed'));
-  }
-}));
+app.use(cors());
+// app.use(cors({
+//    origin(origin, callback) {
+//     if (!origin) return callback(null, true); // allow curl / non-browser tools
+//     if (allowedOrigins.includes(origin)) return callback(null, true);
+//     return callback(new Error('CORS: Origin not allowed'));
+//   }
+// }));
 
 app.get('/health', (req, res) => res.send('ok'));
 
