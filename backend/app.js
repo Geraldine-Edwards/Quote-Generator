@@ -3,7 +3,6 @@ import express from "express";
 import { quotes } from './quotes.js'
 import { allowedOrigins } from './config.js';
 
-console.error('Starting server, allowed origins=', allowedOrigins)
 const app = express();
 const port = process.env.PORT || 3000;
 
