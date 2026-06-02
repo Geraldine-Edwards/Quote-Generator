@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
 import { quotes } from './quotes.js'
-import { allowedOrigins } from './config.js';
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -35,17 +35,17 @@ function pickFromArray(choices) {
 }
 
 
-//  ensure that CORS is restricted to allow requests only from the deployed frontend
-// const allowedDomain = [
-//   "https://geraldine-edwards-quote-generator-frontend.hosting.codeyourfuture.io",
-//   "http://localhost:5501",
-//   "http://127.0.0.1:5501"
-// ];
+// ensure that CORS is restricted to allow requests only from the deployed frontend
+const allowedDomain = [
+  "https://geraldine-edwards-quote-generator-frontend.hosting.codeyourfuture.io",
+  "http://localhost:5501",
+  "http://127.0.0.1:5501"
+];
 
-// app.use(cors({
-//   origin: allowedDomain
-// }));
-app.use(cors());
+app.use(cors({
+  origin: allowedDomain
+}));
+
 
 app.get('/', (req, res) => {
   res.json(pickFromArray(quotes));
